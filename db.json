@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Super Admin",
+      "email": "superadmn@example.com",
+      "password": "123",
+      "role": "superadmin"
+    },
+    {
+      "id": "2",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "123",
+      "role": "admin"
+    },
+    {
+      "id": "3",
+      "name": "Normal User",
+      "email": "user@example.com",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "94b1",
+      "name": "dfcxx",
+      "email": "dfcxx@example.com",
+      "password": "123",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "name": "Running Shoes",
+      "price": 1899,
+      "image": "/running-shoes.jpg",
+      "id": "1"
+    },
+    {
+      "name": "Smart Watch",
+      "price": 4999,
+      "image": "/smart-watch.jpg",
+      "id": "2"
+    },
+    {
+      "id": "5da7",
+      "name": "Test",
+      "price": 788,
+      "image": "www.test.jpg"
+    }
+  ]
+}
