@@ -1,30 +1,33 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { Container, Card, Form, Button, Alert } from 'react-bootstrap';
-import { toast } from 'react-toastify';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { Container, Card, Form, Button, Alert } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = () => {
     const success = login(email.trim().toLowerCase(), password);
     if (success) {
-      toast.success('Login successful');
-      navigate('/dashboard');
+      toast.success("Login successful");
+      navigate("/dashboard");
     } else {
-      setError('Invalid credentials');
-      toast.error('Login failed');
+      setError("Invalid credentials");
+      toast.error("Login failed");
     }
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-      <Card style={{ width: '400px' }} className="p-4 shadow">
+    <Container
+      className="d-flex justify-content-center align-items-center"
+      style={{ height: "100vh" }}
+    >
+      <Card style={{ width: "400px" }} className="p-4 shadow">
         <Card.Body>
           <h3 className="text-center mb-4">Login</h3>
 
@@ -37,7 +40,7 @@ const Login = () => {
               placeholder="Enter email"
               value={email}
               onChange={(e) => {
-                setError('');
+                setError("");
                 setEmail(e.target.value);
               }}
             />
@@ -50,7 +53,7 @@ const Login = () => {
               placeholder="Enter password"
               value={password}
               onChange={(e) => {
-                setError('');
+                setError("");
                 setPassword(e.target.value);
               }}
             />

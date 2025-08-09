@@ -1,6 +1,14 @@
 import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
-import { Card, Container, Row, Col, Button, Form, Badge } from "react-bootstrap";
+import {
+  Card,
+  Container,
+  Row,
+  Col,
+  Button,
+  Form,
+  Badge,
+} from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import Avatar from "react-avatar";
@@ -35,7 +43,6 @@ const Profile = () => {
         <Col md={8}>
           <Card className="p-4 shadow-sm border-0">
             <Row className="align-items-center">
-              {/* Avatar & Upload */}
               <Col md={4} className="text-center mb-4 mb-md-0">
                 <div className="position-relative d-inline-block">
                   {profilePic ? (
@@ -75,7 +82,8 @@ const Profile = () => {
                         const file = e.target.files?.[0];
                         if (file) {
                           const reader = new FileReader();
-                          reader.onloadend = () => setProfilePic(reader.result as string);
+                          reader.onloadend = () =>
+                            setProfilePic(reader.result as string);
                           reader.readAsDataURL(file);
                         }
                       }}
@@ -90,11 +98,9 @@ const Profile = () => {
                 </div>
               </Col>
 
-              {/* Form */}
               <Col md={8}>
                 <h4 className="mb-4 fw-bold">Edit Profile</h4>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                  {/* Name */}
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-semibold">Full Name</Form.Label>
                     <Form.Control
@@ -107,7 +113,6 @@ const Profile = () => {
                     </Form.Control.Feedback>
                   </Form.Group>
 
-                  {/* Email */}
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-semibold">Email</Form.Label>
                     <Form.Control
@@ -118,9 +123,12 @@ const Profile = () => {
                     />
                   </Form.Group>
 
-                  {/* Save Button */}
                   <div className="d-grid">
-                    <Button variant="primary" type="submit" className="fw-semibold">
+                    <Button
+                      variant="primary"
+                      type="submit"
+                      className="fw-semibold"
+                    >
                       Save Changes
                     </Button>
                   </div>

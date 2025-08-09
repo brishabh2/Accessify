@@ -46,7 +46,7 @@ const Dashboard = () => {
     <Container className="mt-4">
       <h2 className="mb-4">Welcome, {user?.name}</h2>
 
-      {/* Summary Cards */}
+      
       <Row className="g-4 mb-4">
         <Col md={6} lg={3}>
           <Card className="text-white bg-primary shadow">
@@ -82,7 +82,7 @@ const Dashboard = () => {
         </Col>
       </Row>
 
-      {/* Charts */}
+      
       <Row className="g-4">
         <Col md={12} lg={6}>
           <Card className="shadow">

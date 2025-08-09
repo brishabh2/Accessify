@@ -22,9 +22,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="d-flex min-vh-100">
-      {/* Sidebar */}
       <aside className="bg-dark text-white p-3" style={{ width: "240px" }}>
-        {/* Brand */}
         <div className="mb-4">
           <h3 className="fw-bold">Accessify</h3>
           <span className="badge bg-primary text-uppercase">
@@ -32,7 +30,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </span>
         </div>
 
-        {/* Navigation */}
         <ul className="nav flex-column gap-1">
           <li className="nav-item">
             <NavLink
@@ -94,7 +91,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </ul>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-grow-1 p-4 bg-light">{children}</main>
     </div>
   );

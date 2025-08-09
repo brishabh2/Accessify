@@ -67,7 +67,8 @@ const Shop = () => {
 
   // DELETE Product
   const handleDeleteProduct = async (id: number) => {
-    if (!window.confirm("Are you sure you want to delete this product?")) return;
+    if (!window.confirm("Are you sure you want to delete this product?"))
+      return;
 
     try {
       await axios.delete(`http://localhost:5000/products/${id}`);
@@ -102,7 +103,6 @@ const Shop = () => {
     <Container>
       <h2 className="my-4">Shop</h2>
 
-      {/* SEARCH BOX */}
       <Row className="mb-3">
         <Col md={4}>
           <Form.Control
@@ -114,7 +114,6 @@ const Shop = () => {
         </Col>
       </Row>
 
-      {/* SUPERADMIN PRODUCT FORM */}
       {user?.role === "superadmin" && (
         <Card className="mb-4 p-3 shadow">
           <h5>{editingProductId ? "Edit Product" : "Add New Product"}</h5>
@@ -156,7 +155,6 @@ const Shop = () => {
         </Card>
       )}
 
-      {/* PRODUCTS LIST */}
       <Row>
         {filteredProducts.map((product) => {
           const cartQuantity = getCartQuantity(product.id);

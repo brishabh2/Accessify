@@ -73,7 +73,6 @@ const UsersPage = () => {
         </tbody>
       </table>
 
-      {/* Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Add User</Modal.Title>
