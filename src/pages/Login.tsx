@@ -11,8 +11,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = () => {
-    const success = login(email.trim().toLowerCase(), password);
+  const handleLogin = async () => {
+    const success = await login(email.trim().toLowerCase(), password);
     if (success) {
       toast.success("Login successful");
       navigate("/dashboard");
