@@ -19,7 +19,7 @@ type FormData = {
 
 const Profile = () => {
   const [profilePic, setProfilePic] = useState<string | null>(null);
-  const { user, login } = useAuth();
+  const { user, updateProfile } = useAuth();
 
   const {
     register,
@@ -32,7 +32,13 @@ const Profile = () => {
   });
 
   const onSubmit = (data: FormData) => {
-    login({ name: data.name, email: user!.email, role: user!.role });
+    updateProfile({
+      id: user!.id,
+      name: data.name,
+      email: user!.email,
+      role: user!.role,
+    });
+
     toast.success("Profile updated!");
     if (profilePic) toast.success("Profile picture uploaded!");
   };
@@ -79,7 +85,7 @@ const Profile = () => {
                       type="file"
                       accept="image/*"
                       onChange={(e) => {
-                        const file = e.target.files?.[0];
+                        const file = (e.target as HTMLInputElement).files?.[0];
                         if (file) {
                           const reader = new FileReader();
                           reader.onloadend = () =>

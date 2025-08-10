@@ -21,6 +21,7 @@ interface AuthContextType {
   addUser: (newUser: Omit<User, "id">) => Promise<void>;
   deleteUser: (id: number) => Promise<void>;
   fetchUsers: () => Promise<void>;
+  updateProfile: (updatedUser: Omit<User, "password">) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -96,6 +97,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     await axios.delete(`${API_URL}/${id}`);
     fetchUsers();
   };
+  const updateProfile = async (updatedUser: Omit<User, "password">) => {
+    await axios.put(`${API_URL}/${updatedUser.id}`, updatedUser);
+    setUser(updatedUser);
+    localStorage.setItem("auth-user", JSON.stringify(updatedUser));
+  };
 
   return (
     <AuthContext.Provider
@@ -108,6 +114,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         addUser,
         deleteUser,
         fetchUsers,
+        updateProfile,
       }}
     >
       {children}
