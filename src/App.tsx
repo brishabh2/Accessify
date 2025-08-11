@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import Signup from "./pages/Signup";
 import Shop from "./pages/Shop";
 import CartPage from "./pages/CartPage";
+import CredentialsModal from "./components/common/CredentialsModal";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
         <Route path="/unauthorized" element={<h2>Unauthorized Access</h2>} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />
+      <CredentialsModal />
     </>
   );
 }
